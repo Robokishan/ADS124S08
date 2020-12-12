@@ -4,3 +4,8 @@ This library allows an Arduino board to get data from ADS124S08 adc chip.
 
 For more information about this library please visit us at
 https://github.com/Robokishan/ADS124S08
+
+board:
+tindie: https://www.tindie.com/products/shridattdudhat/ads124s08-24-bit-4-ksps-12-ch-delta-sigma-adc/
+
+Github: https://github.com/shridattdudhat/ADS124S08
