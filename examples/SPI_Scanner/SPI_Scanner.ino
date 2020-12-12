@@ -22,7 +22,7 @@ void setup()
 
   digitalWrite(ADS124S08_CS_PIN, HIGH);
 
-  Serial.begin(9600);
+  SerialDEBUG.begin(9600);
   delay(1000);
   // start the SPI library:
   SPI.begin();
@@ -33,23 +33,24 @@ void setup()
   SPI.setClockDivider(SPI_CLOCK_DIV8); // DIV16
   //initalize ADS1292 slave
   PC_ADS124S08.ADS124S08_Init();                      // initialise ADS124S08
-  Serial.println("ADS124S08 Initialised successfully....");
+  SerialDEBUG.println("ADS124S08 Initialised successfully....");
  }
-uint8_t channel = 0;
+
 void loop()
 {
-  Serial.println("SPI Scanner Started");
+  uint8_t channel = 0;
+  SerialDEBUG.println("SPI Scanner Started");
   for(int channel = 0 ;channel < 12; channel++)
   {
-    Serial.print("Channel : ");
-    Serial.print(channel);
+    SerialDEBUG.print("Channel : ");
+    SerialDEBUG.print(channel);
     PC_ADS124S08.setChannel(channel);
     delay(50);
     if(digitalRead(ADS124S08_DRDY_PIN) == LOW)               // monitor Data ready(DRDY pin)
     {
       uint32_t data = PC_ADS124S08.ADS124S08_Read_Data();      // read 6 bytes conversion register
-      Serial.print(" , Value : ");
-      Serial.println(data);
+      SerialDEBUG.print(" , Value : ");
+      SerialDEBUG.println(data);
     }
     delay(500);
   }
