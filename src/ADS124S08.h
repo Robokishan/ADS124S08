@@ -9,6 +9,7 @@ Released into the public domain.
 
 // Includes
 #include "Arduino.h"
+#include <SPI.h>
 
 #define CONFIG_SPI_MASTER_DUMMY   0x00
 #define VREF 2.5
@@ -29,10 +30,10 @@ Released into the public domain.
 #define	ADS_REF		    0x05
 
 //Pin declartion the other you need are controlled by the SPI library
-const int ADS124S08_DRDY_PIN = B4;
-const int ADS124S08_CS_PIN = B3;
-const int ADS124S08_START_PIN = B5;
-const int ADS124S08_PWDN_PIN = D7;
+const int ADS124S08_DRDY_PIN = 10;
+const int ADS124S08_CS_PIN = 11;
+const int ADS124S08_START_PIN = 12;
+const int ADS124S08_PWDN_PIN = 13;
 
 class ADS124S08
 {

@@ -1,5 +1,6 @@
 #include "ADS124S08.h"
 #include "math.h"
+#include <SPI.h>
 #define VREF 2.5                   // Internal reference of 2.048V
 
 ADS124S08 PC_ADS124S08;            // class

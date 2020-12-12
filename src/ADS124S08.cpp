@@ -74,7 +74,7 @@ uint8_t ADS124S08::readRegister(uint8_t address)
 
 void ADS124S08::ADS124S08_Init()
 {
-  Log.info("ADS Init");
+  // Log.info("ADS Init");
   delay(10);
   ADS124S08_Reset();
   delay(20);
