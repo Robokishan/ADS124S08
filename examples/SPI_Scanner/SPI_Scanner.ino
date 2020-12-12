@@ -1,5 +1,4 @@
 #include "ADS124S08.h"
-#include "math.h"
 #include <SPI.h>
 #define VREF 2.5                   // Internal reference of 2.048V
 
@@ -10,7 +9,14 @@ float volt_mV = 0;
 
 double resolution;
 
-#define SerialDEBUG Serial
+#if defined(ARDUINO_ARCH_AVR)
+  #define SerialDEBUG Serial
+#elif defined(ARDUINO_ARCH_SAM)
+  #define SerialDEBUG SerialUSB
+#else
+  #define SerialDEBUG Serial
+#endif
+
 
 void setup()
 {
